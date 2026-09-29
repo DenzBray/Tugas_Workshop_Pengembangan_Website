@@ -31,7 +31,6 @@ Route::middleware(['auth'])->group(function () {
 
     // Khusus Kasir
     Route::middleware(['role:kasir'])->group(function () {
-        Route::resource('products', ProductController::class)->only(['index', 'show']); // Kasir hanya bisa melihat produk
         Route::resource('transactions', TransactionController::class);
         Route::get('/kasir/dashboard', [KasirController::class, 'dashboard'])->name('kasir.dashboard');
     });
